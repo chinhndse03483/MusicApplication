@@ -37,7 +37,7 @@ typedef enum {
     
     
 } PLAYER_STATE;
-
+@property(nonatomic, strong) GADInterstitial *interstitial;
 @interface NowPlayingViewController ()<UIGestureRecognizerDelegate,GADBannerViewDelegate>
 {
     id timeObserver;
@@ -55,6 +55,7 @@ typedef enum {
 @synthesize slider;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.interstitial = [self createAndLoadInterstitial];
        // Do any additional setup after loading the view.
     //_lbTitleTrack.marqueeType = MLContinuous;
     //_lbTitleTrack.animationDelay = 2.0f;
