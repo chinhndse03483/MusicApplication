@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7B07CC0C2FFFEF55AC00C599FEFE620CA32FE4E0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "72d253a3-f578-49e8-93a1-c4f3578b91ff++7542" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "7B07CC0C2FFFEF55AC00C599FEFE620CA32FE4E0" : 0,
+    "72d253a3-f578-49e8-93a1-c4f3578b91ff++7542" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "02891457-0BD3-48DA-A372-1911015BE054",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "7B07CC0C2FFFEF55AC00C599FEFE620CA32FE4E0" : "hackathon_ios_gen_zing\/",
+    "72d253a3-f578-49e8-93a1-c4f3578b91ff++7542" : "hackathon_ios_gen_zing\/Hackathon_ios_gen2_Zing\/Libraries\/AFNetworking\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Hackathon_ios_gen2_Zing",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Hackathon_ios_gen2_Zing.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/kinioslab.svn.cloudforge.com\/dkgroup",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "72d253a3-f578-49e8-93a1-c4f3578b91ff++7542"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/hackathon_ios_gen_zing\/hackathon_ios_gen_zing.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7B07CC0C2FFFEF55AC00C599FEFE620CA32FE4E0"
+    }
+  ]
+}

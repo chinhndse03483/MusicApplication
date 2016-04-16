@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="TrackCell" selectionStyle="default" indentationWidth="10" rowHeight="93" id="dKh-Ew-f0a" customClass="TrackCell">
+            <rect key="frame" x="0.0" y="0.0" width="418" height="93"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dKh-Ew-f0a" id="MDP-hF-TAG">
+                <rect key="frame" x="0.0" y="0.0" width="418" height="92"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M1T-47-x8X" userLabel="Img">
+                        <rect key="frame" x="6" y="2" width="89" height="89"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="M1T-47-x8X" secondAttribute="height" multiplier="1:1" id="5do-nH-PY6"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmz-zI-LCN">
+                        <rect key="frame" x="104" y="7" width="269" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHU-06-nVH">
+                        <rect key="frame" x="373" y="22" width="45" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="32o-Es-cdt"/>
+                            <constraint firstAttribute="height" constant="50" id="SLO-iq-PGb"/>
+                        </constraints>
+                        <state key="normal" image="ButtonMore"/>
+                        <connections>
+                            <action selector="btnMoreTouched:" destination="dKh-Ew-f0a" eventType="touchUpInside" id="Q8c-o3-7GJ"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5L-sa-Eyj">
+                        <rect key="frame" x="103" y="33" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qHU-06-nVH" firstAttribute="centerY" secondItem="MDP-hF-TAG" secondAttribute="centerY" id="D8I-Mx-6ka"/>
+                    <constraint firstItem="M1T-47-x8X" firstAttribute="leading" secondItem="MDP-hF-TAG" secondAttribute="leading" constant="6" id="GvL-n9-B9F"/>
+                    <constraint firstItem="J5L-sa-Eyj" firstAttribute="leading" secondItem="M1T-47-x8X" secondAttribute="trailing" constant="8" id="J8b-PE-8eL"/>
+                    <constraint firstItem="Hmz-zI-LCN" firstAttribute="top" secondItem="MDP-hF-TAG" secondAttribute="top" constant="7" id="aLm-PI-bwc"/>
+                    <constraint firstItem="J5L-sa-Eyj" firstAttribute="top" secondItem="Hmz-zI-LCN" secondAttribute="bottom" constant="8" id="aXl-KL-70m"/>
+                    <constraint firstItem="Hmz-zI-LCN" firstAttribute="leading" secondItem="M1T-47-x8X" secondAttribute="trailing" constant="10" id="eGd-hb-Fdt"/>
+                    <constraint firstItem="M1T-47-x8X" firstAttribute="top" secondItem="MDP-hF-TAG" secondAttribute="top" constant="2" id="h0u-my-FP0"/>
+                    <constraint firstItem="qHU-06-nVH" firstAttribute="leading" secondItem="Hmz-zI-LCN" secondAttribute="trailing" id="hnO-dA-EkQ"/>
+                    <constraint firstAttribute="trailing" secondItem="qHU-06-nVH" secondAttribute="trailing" id="sEr-c8-Q9s"/>
+                    <constraint firstAttribute="bottom" secondItem="M1T-47-x8X" secondAttribute="bottom" constant="2" id="srg-NC-Cof"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnMore" destination="qHU-06-nVH" id="PGU-wd-UlS"/>
+                <outlet property="img" destination="M1T-47-x8X" id="hVb-oE-4t5"/>
+                <outlet property="lblAuthor" destination="J5L-sa-Eyj" id="SWG-Tr-Hqq"/>
+                <outlet property="lblTitle" destination="Hmz-zI-LCN" id="naW-8T-thB"/>
+            </connections>
+            <point key="canvasLocation" x="147" y="75.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ButtonMore" width="44" height="44"/>
+    </resources>
+</document>

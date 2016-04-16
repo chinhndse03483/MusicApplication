@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10089" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10072.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="84" id="KGk-i7-Jjw" customClass="SearchSongCellTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="84"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SearchSongCellTableViewCell" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="335" height="83"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eod-OB-ppb">
+                        <rect key="frame" x="2" y="2" width="72" height="72"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Eod-OB-ppb" secondAttribute="height" multiplier="1:1" id="U62-En-cab"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNa-vA-eZh">
+                        <rect key="frame" x="75" y="10" width="232" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwE-xv-xPo">
+                        <rect key="frame" x="75" y="32" width="31" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKc-N9-0F8">
+                        <rect key="frame" x="300" y="23" width="30" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                        <state key="normal" title="..."/>
+                        <connections>
+                            <action selector="btnActionTouchUpInside:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OgN-TM-ebD"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfG-Q9-IlU" userLabel="lblDuration">
+                        <rect key="frame" x="32" y="54" width="42" height="21"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="oNa-vA-eZh" secondAttribute="trailing" constant="20" id="1g3-kQ-RsA"/>
+                    <constraint firstItem="VKc-N9-0F8" firstAttribute="leading" secondItem="oNa-vA-eZh" secondAttribute="trailing" constant="7" id="3HD-o5-uGo"/>
+                    <constraint firstAttribute="bottom" secondItem="Eod-OB-ppb" secondAttribute="bottom" constant="2" id="5w3-vQ-p6K"/>
+                    <constraint firstAttribute="bottom" secondItem="dfG-Q9-IlU" secondAttribute="bottom" id="6zS-7j-bTK"/>
+                    <constraint firstItem="Eod-OB-ppb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="8tw-oh-gYz"/>
+                    <constraint firstAttribute="bottom" secondItem="Eod-OB-ppb" secondAttribute="bottom" constant="1" id="9Qa-CC-Oti"/>
+                    <constraint firstItem="Eod-OB-ppb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="E6X-gj-v4G"/>
+                    <constraint firstAttribute="trailing" secondItem="VKc-N9-0F8" secondAttribute="trailing" constant="20" symbolic="YES" id="Edc-pM-ROW"/>
+                    <constraint firstItem="dwE-xv-xPo" firstAttribute="trailing" secondItem="oNa-vA-eZh" secondAttribute="trailing" id="Los-PS-XP8"/>
+                    <constraint firstItem="dwE-xv-xPo" firstAttribute="top" secondItem="oNa-vA-eZh" secondAttribute="bottom" constant="1" id="Qx5-XL-5We"/>
+                    <constraint firstItem="dwE-xv-xPo" firstAttribute="leading" secondItem="oNa-vA-eZh" secondAttribute="leading" id="WVB-lF-CNj"/>
+                    <constraint firstItem="dwE-xv-xPo" firstAttribute="leading" secondItem="Eod-OB-ppb" secondAttribute="trailing" constant="1" id="anb-xS-8oW"/>
+                    <constraint firstItem="dfG-Q9-IlU" firstAttribute="trailing" secondItem="Eod-OB-ppb" secondAttribute="trailing" id="b4N-rQ-2dr"/>
+                    <constraint firstItem="oNa-vA-eZh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="k11-6I-mHw"/>
+                    <constraint firstItem="VKc-N9-0F8" firstAttribute="leading" secondItem="oNa-vA-eZh" secondAttribute="trailing" constant="8" symbolic="YES" id="ubF-qA-Gnq"/>
+                    <constraint firstItem="VKc-N9-0F8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-5" id="xBG-fr-H0C"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="5w3-vQ-p6K"/>
+                        <exclude reference="Los-PS-XP8"/>
+                        <exclude reference="3HD-o5-uGo"/>
+                        <exclude reference="ubF-qA-Gnq"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnAction" destination="VKc-N9-0F8" id="EQ8-js-kZK"/>
+                <outlet property="imgSong" destination="Eod-OB-ppb" id="fSx-j4-hhS"/>
+                <outlet property="lblAuthor" destination="dwE-xv-xPo" id="15b-tM-9mh"/>
+                <outlet property="lblDuration" destination="dfG-Q9-IlU" id="BJ0-fD-FtP"/>
+                <outlet property="lblName" destination="oNa-vA-eZh" id="3P9-o0-4PB"/>
+            </connections>
+            <point key="canvasLocation" x="291.5" y="235"/>
+        </tableViewCell>
+        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="FUb-Qj-Nwq">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        </imageView>
+    </objects>
+</document>
