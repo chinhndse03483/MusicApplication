@@ -184,7 +184,7 @@
         UIAlertAction *save = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
             [DBListTrack createFavoriteWithTitle:alert.textFields[0].text];
-            
+            [self.navigationController popViewControllerAnimated:NO];
         }];
         
         [alert addAction:cancel];
@@ -193,7 +193,6 @@
         [self presentViewController:alert animated:YES completion:nil];
     } else {
         _selectedPlaylist = _playlists[indexPath.row];
-        [self reloadAllPlaylistsWillReloadTableView:YES];
     }
 }
 

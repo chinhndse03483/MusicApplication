@@ -13,6 +13,7 @@
 #import "FavoriteDetailViewController.h"
 #import <MagicalRecord/MagicalRecord.h>
 #import "NowplayingViewController.h"
+#import "AppDelegate.h"
 @interface FavoriteViewController ()<NSFetchedResultsControllerDelegate>
 @property(nonatomic,strong) NSMutableArray *playlists;
 @property(nonatomic,strong) NSFetchedResultsController *fetchedResultsController;
@@ -76,7 +77,6 @@
     [alert addAction:cancel];
     [alert addAction:save];
     
-    [self reloadAllPlaylistsWillReloadTableView:YES];
     [self presentViewController:alert animated:YES completion:nil];
 }
 
@@ -183,10 +183,11 @@
             
             [DBListTrack createFavoriteWithTitle:alert.textFields[0].text];
             
-            [self reloadAllPlaylistsWillReloadTableView:YES];
         }];
+        
         [alert addAction:cancel];
         [alert addAction:save];
+        
         [self presentViewController:alert animated:YES completion:nil];
     } else {
         DBListTrack *selectedPlaylist = _playlists[indexPath.row];
@@ -195,6 +196,7 @@
         favoriteDetailViewController.selectedPlaylist = selectedPlaylist;
         
         [self.navigationController pushViewController:favoriteDetailViewController animated:YES];
+        
     }
 }
 

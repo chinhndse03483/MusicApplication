@@ -10,9 +10,12 @@
 #import "Constant.h"
 #import <MagicalRecord/MagicalRecord.h>
 #import "DBTrack.h"
+#import "Track.h"
 #import "TrackCell.h"
+#import "NowplayingViewController.h"
 #import "NowPlayingViewController.h"
 #import "UIImageView+WebCache.h"
+#import "AppDelegate.h"
 
 typedef NS_ENUM(NSInteger, buttonType) {
     btnAddIndex = 0,
@@ -149,26 +152,23 @@ typedef NS_ENUM(NSInteger, buttonType) {
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    
     NowPlayingViewController *nowPlayingViewController = [NowPlayingViewController sharedManager];
     Track *selectedTrack = [[Track alloc]initWithDBTrack:_tracks[indexPath.row]];
-    nowPlayingViewController.trackList = [[NSMutableArray alloc]init];
-    for (DBTrack *dbTrack in _tracks) {
-        [nowPlayingViewController.trackList addObject:[[Track alloc]initWithDBTrack:dbTrack]];
+    NSMutableArray *tmpArray = [[NSMutableArray alloc]init];
+    
+    for (int i = 0 ; i < _tracks.count ; i++)
+    {
+        Track *tmpTrack = [[Track alloc]initWithDBTrack:[_tracks objectAtIndex:i]];
+        [tmpArray addObject:tmpTrack];
     }
-    CATransition* transition = [CATransition animation];
-    transition.duration = 0.3f;
-    transition.type = kCATransitionMoveIn;
-    transition.subtype = kCATransitionFromTop;
-    [self.navigationController.view.layer addAnimation:transition
-                                                forKey:kCATransition];
-    [nowPlayingViewController setHidesBottomBarWhenPushed:YES];
-    // if (![nowPlayingViewController.playingTrack.trackID isEqual: selectedTrack.trackID]) {
-    nowPlayingViewController.playingTrack = selectedTrack;
-    [nowPlayingViewController playTrack:nowPlayingViewController.playingTrack];
-    // }
-    [self.navigationController pushViewController:nowPlayingViewController animated:NO];
-}
+    
+    
+    if (![nowPlayingViewController.playingTrack.linkStreaming isEqual: selectedTrack.linkStreaming]) {
+        [APPDELEGATE playMusic:selectedTrack andIndexPathDidselected:indexPath.row andArrSong:_tracks];
+    }
 
+}
 
 #pragma mark - Track Cell Delegate
 
