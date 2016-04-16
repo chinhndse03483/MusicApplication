@@ -875,7 +875,7 @@
 				TargetAttributes = {
 					B863C2671CA71CD300688CD2 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 8DJSS447Y7;
+						DevelopmentTeam = 77G8PUN44T;
 					};
 				};
 			};
@@ -1218,7 +1218,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = "Hackat-ios-gen2-Zing";
+				PRODUCT_BUNDLE_IDENTIFIER = "Hackatho-ios-gen2-Zing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1239,7 +1239,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = "Hackat-ios-gen2-Zing";
+				PRODUCT_BUNDLE_IDENTIFIER = "Hackatho-ios-gen2-Zing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

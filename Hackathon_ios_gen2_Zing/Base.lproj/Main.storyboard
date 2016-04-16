@@ -387,11 +387,11 @@
                             <mask key="constraints">
                                 <exclude reference="OrS-V5-azI"/>
                                 <exclude reference="qXY-fg-w3a"/>
-                                <exclude reference="X0t-P7-A1c"/>
-                                <exclude reference="yyW-9Q-wxn"/>
                                 <exclude reference="AEl-2D-NZM"/>
                                 <exclude reference="T9S-ns-WfR"/>
                                 <exclude reference="maZ-MM-GVm"/>
+                                <exclude reference="X0t-P7-A1c"/>
+                                <exclude reference="yyW-9Q-wxn"/>
                                 <exclude reference="9nY-SW-NfK"/>
                                 <exclude reference="mpd-c6-37I"/>
                             </mask>

@@ -79,7 +79,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnAction" destination="VKc-N9-0F8" id="EQ8-js-kZK"/>
-                <outlet property="btnMore" destination="VKc-N9-0F8" id="rj9-qC-zz9"/>
                 <outlet property="imgSong" destination="Eod-OB-ppb" id="fSx-j4-hhS"/>
                 <outlet property="lblAuthor" destination="dwE-xv-xPo" id="15b-tM-9mh"/>
                 <outlet property="lblDuration" destination="dfG-Q9-IlU" id="BJ0-fD-FtP"/>
