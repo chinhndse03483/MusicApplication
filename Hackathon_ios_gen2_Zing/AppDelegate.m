@@ -22,10 +22,23 @@
 
 @implementation AppDelegate
 
+- (GADInterstitial *)createAndLoadInterstitial {
+    GADInterstitial *interstitial =
+    [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
+    interstitial.delegate = self;
+    [interstitial loadRequest:[GADRequest request]];
+    return interstitial;
+}
+
+- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
+    self.interstitial = [self createAndLoadInterstitial];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
+    self.interstitial = [self createAndLoadInterstitial];
     NSError *setCategoryErr = nil;
     NSError *activationErr  = nil;
     _inited = 0;
