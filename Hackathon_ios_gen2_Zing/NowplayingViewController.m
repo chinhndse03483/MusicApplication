@@ -661,10 +661,12 @@ typedef enum {
     transition.subtype = kCATransitionFromTop;
     [self.navigationController.view.layer addAnimation:transition
                                                 forKey:kCATransition];
-    [showListViewController setHidesBottomBarWhenPushed:YES];
+   // [showListViewController setHidesBottomBarWhenPushed:YES];
     [showListViewController setTitle:@"fuck"];
-    
+    [showListViewController.navigationController setNavigationBarHidden:FALSE];
+    //[self present]
     [self presentViewController:showListViewController animated:YES completion:nil];
+    
     //[self.navigationController pushViewController:showListViewController animated:NO];
     
 }
