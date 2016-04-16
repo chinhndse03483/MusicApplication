@@ -38,7 +38,7 @@
     
     _fetchedResultsController = [DBTrack MR_fetchAllSortedBy:@"listID"
                                                    ascending:NO
-                                               withPredicate:[NSPredicate predicateWithFormat:@"listID != %@",[NSNumber numberWithInt:0]]
+                                               withPredicate:[NSPredicate predicateWithFormat:@"listID != %@",[NSNumber numberWithInt:1]]
                                                      groupBy:nil
                                                     delegate:self];
     [self reloadAllPlaylistsWillReloadTableView:YES];
@@ -56,7 +56,6 @@
 - (void)btnDoneAllDidTouch;
 {
     NSLog(@"test track: %@",_track.linkStreaming);
-    
     DBTrack *dbTrack = [DBTrack createDBTrackFromTrack:_track];
     [DBListTrack addTrackToPlaylist:_selectedPlaylist andDBTrack:dbTrack];
     
@@ -82,7 +81,7 @@
 
 - (void)reloadAllPlaylistsWillReloadTableView:(BOOL)willReloadTable;
 {
-    _playlists = [[NSMutableArray alloc]initWithArray:[DBListTrack MR_findAllSortedBy:@"listID" ascending:NO withPredicate:[NSPredicate predicateWithFormat:@"listID != %@",[NSNumber numberWithInt:0]]]];
+    _playlists = [[NSMutableArray alloc]initWithArray:[DBListTrack MR_findAllSortedBy:@"listID" ascending:NO withPredicate:[NSPredicate predicateWithFormat:@"listID != %@",[NSNumber numberWithInt:1]]]];
     if (willReloadTable) {
         [_tblPlaylists reloadData];
     }
@@ -184,7 +183,8 @@
         UIAlertAction *save = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
             [DBListTrack createFavoriteWithTitle:alert.textFields[0].text];
-            [self.navigationController popViewControllerAnimated:NO];
+            [self reloadAllPlaylistsWillReloadTableView:YES];
+            
         }];
         
         [alert addAction:cancel];
@@ -193,6 +193,7 @@
         [self presentViewController:alert animated:YES completion:nil];
     } else {
         _selectedPlaylist = _playlists[indexPath.row];
+        [self reloadAllPlaylistsWillReloadTableView:YES];
     }
 }
 

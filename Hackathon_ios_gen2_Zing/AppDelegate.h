@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Track.h"
 #import "NowplayingViewController.h"
+@import GoogleMobileAds;
 #define APPDELEGATE ((AppDelegate *)[UIApplication sharedApplication].delegate)
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, GADInterstitialDelegate>
 
 
-
+@property (strong, nonatomic) GADInterstitial * interstitial;
 @property (strong, nonatomic) UIWindow *window;
 
 
