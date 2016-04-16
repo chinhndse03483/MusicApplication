@@ -570,8 +570,8 @@ typedef enum {
             pos = _trackList.count - 1;
         }
         else pos = pos - 1;
-        DBTrack *tmpDbTrack = [_trackList objectAtIndex:pos];
-        _playingTrack = [[Track alloc]initWithDBTrack:tmpDbTrack];
+        Track *tmpDbTrack = [_trackList objectAtIndex:pos];
+        _playingTrack = tmpDbTrack;
         [self playTrack:_playingTrack];
     }
 }
@@ -656,26 +656,26 @@ typedef enum {
     }
 }
 - (IBAction)btnListViewDidTouch:(id)sender {
- 
-    ShowListViewController *showListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ShowListViewController"];
-    showListViewController.trackList = _trackList;
-    showListViewController.indexURl = _playingTrack.linkStreaming;
-    CATransition* transition = [CATransition animation];
-    transition.duration = 0.3f;
-    transition.type = kCATransitionMoveIn;
-    transition.subtype = kCATransitionFromTop;
-    showListViewController.indexTrack = _indexTrack;
-    [self.navigationController.view.layer addAnimation:transition
-                                                forKey:kCATransition];
-   // [showListViewController setHidesBottomBarWhenPushed:YES];
-    [showListViewController setTitle:@"fuck"];
-    [showListViewController.navigationController setNavigationBarHidden:FALSE];
-    
-    //[self present]
-    [self presentViewController:showListViewController animated:YES completion:nil];
-    
-    //[self.navigationController pushViewController:showListViewController animated:NO];
-    
+// 
+//    ShowListViewController *showListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ShowListViewController"];
+//    showListViewController.trackList = _trackList;
+//    showListViewController.indexURl = _playingTrack.linkStreaming;
+//    CATransition* transition = [CATransition animation];
+//    transition.duration = 0.3f;
+//    transition.type = kCATransitionMoveIn;
+//    transition.subtype = kCATransitionFromTop;
+//    showListViewController.indexTrack = _indexTrack;
+//    [self.navigationController.view.layer addAnimation:transition
+//                                                forKey:kCATransition];
+//   // [showListViewController setHidesBottomBarWhenPushed:YES];
+//    [showListViewController setTitle:@"fuck"];
+//    [showListViewController.navigationController setNavigationBarHidden:FALSE];
+//    
+//    //[self present]
+//    [self presentViewController:showListViewController animated:YES completion:nil];
+//    
+//    //[self.navigationController pushViewController:showListViewController animated:NO];
+//    
 }
 
 - (NSInteger)getStatus;

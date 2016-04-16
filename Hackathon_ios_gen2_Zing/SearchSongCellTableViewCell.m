@@ -58,11 +58,11 @@
 
 
 - (IBAction)btnActionTouchUpInside:(id)sender {
-    //    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select Sharing option:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
-    //                            @"Them vao Danh Sach",
-    //                            @"Chia se",
-    //                            nil];
-    //    popup.tag = 1;
+//        UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select Sharing option:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+//                                @"Them vao Danh Sach",
+//                                @"Chia se",
+//                                nil];
+//        popup.tag = 1;
     if (self.delegate && [self.delegate respondsToSelector:@selector(searchSongCellDidTouchOnActionButton:)]){
         [self.delegate searchSongCellDidTouchOnActionButton:self];
     } 
