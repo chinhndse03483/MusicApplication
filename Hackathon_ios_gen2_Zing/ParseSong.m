@@ -199,12 +199,15 @@ NowPlayingViewController *nowPlayingViewController;
 {
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+//    Track *selectedTrack1 = _listSong[indexPath.row];
+
     if (_type == 0){
         
         nowPlayingViewController = [NowPlayingViewController sharedManager];
         nowPlayingViewController.trackList = _listSong;
         Track *selectedTrack = _listSong[indexPath.row];
-        nowPlayingViewController.playingTrack = selectedTrack;
+        nowPlayingViewController.indexTrack = [NSIndexPath indexPathForRow:indexPath.row inSection:_type];
+            nowPlayingViewController.playingTrack = selectedTrack;
         [APPDELEGATE playMusic:selectedTrack andIndexPathDidselected:indexPath.row andArrSong:_listSong];
 //        UIBarButtonItem *leftbutton =[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:nil action:@selector(btnPlayPausePopupDidTap) ];
 //        

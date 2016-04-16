@@ -14,7 +14,12 @@
 #import "DBTrack.h"
 #import "ShowListViewController.h"
 #import "Libraries/LNPopupController/LNPopupController.h"
+
+#import "AppDelegate.h"
+
+
 @import GoogleMobileAds;
+
 
 #define kTracksKey              @"tracks"
 #define kStatusKey              @"status"
@@ -653,15 +658,18 @@ typedef enum {
  
     ShowListViewController *showListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ShowListViewController"];
     showListViewController.trackList = _trackList;
+    showListViewController.indexURl = _playingTrack.linkStreaming;
     CATransition* transition = [CATransition animation];
     transition.duration = 0.3f;
     transition.type = kCATransitionMoveIn;
     transition.subtype = kCATransitionFromTop;
+    showListViewController.indexTrack = _indexTrack;
     [self.navigationController.view.layer addAnimation:transition
                                                 forKey:kCATransition];
    // [showListViewController setHidesBottomBarWhenPushed:YES];
     [showListViewController setTitle:@"fuck"];
     [showListViewController.navigationController setNavigationBarHidden:FALSE];
+    
     //[self present]
     [self presentViewController:showListViewController animated:YES completion:nil];
     

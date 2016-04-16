@@ -12,7 +12,10 @@
 @property(nonatomic,strong) IBOutlet UITableView *tblSong;
 @property(nonatomic,weak) NSString* urlParse;
 @property(assign,nonatomic) NSInteger type;
+@property(assign,nonatomic) NSUInteger *indextouch;
 @property(nonatomic,strong) NSString *navigationTitle;
+
+
 - (void)requestListCategories;
 
 @end
