@@ -111,6 +111,12 @@ typedef NS_ENUM(NSInteger, buttonType) {
 #pragma mark - Tableview Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    int i = arc4random()%3;
+    NSLog(@"-----%d",i);
+    if(APPDELEGATE.interstitial.isReady && i == 0){
+        
+        [APPDELEGATE.interstitial presentFromRootViewController:self];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     //if (_type == 0){
         NowPlayingViewController *nowPlayingViewController = [NowPlayingViewController sharedManager];

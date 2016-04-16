@@ -265,7 +265,12 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
-    
+    int i = arc4random()%3;
+    NSLog(@"-----%d",i);
+    if(APPDELEGATE.interstitial.isReady && i == 0){
+        
+        [APPDELEGATE.interstitial presentFromRootViewController:self];
+    }
     _tblSuggest.hidden = YES;
     _tblSearch.hidden = NO;
     [_searchBar endEditing:YES];
@@ -351,8 +356,14 @@
 #pragma mark - TableView Delegate
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
+    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (tableView == _tblSearch) {
+        int i = arc4random()%3;
+        if(APPDELEGATE.interstitial.isReady && i == 0){
+            
+            [APPDELEGATE.interstitial presentFromRootViewController:self];
+        }
         Track *track = _track[indexPath.row];
         NSString *TrackId = track.trackId;
         
@@ -372,6 +383,11 @@
         
     }else{
         [_searchBar resignFirstResponder];
+        int i = arc4random()%3;
+        if(APPDELEGATE.interstitial.isReady && i == 0){
+            
+            [APPDELEGATE.interstitial presentFromRootViewController:self];
+        }
         Suggestion *suggest = _suggestions[indexPath.row];
         //NSLog(@"%@",selectedTrack.linkStreaming);
         NSString *TrackId = suggest.trackId;

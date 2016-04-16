@@ -149,7 +149,11 @@ typedef NS_ENUM(NSInteger, buttonType) {
 #pragma mark - TableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    int i = arc4random()%3;
+    if(APPDELEGATE.interstitial.isReady && i == 0){
+        
+        [APPDELEGATE.interstitial presentFromRootViewController:self];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     
