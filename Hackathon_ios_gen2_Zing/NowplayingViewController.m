@@ -42,7 +42,7 @@ typedef enum {
     
     
 } PLAYER_STATE;
-@property(nonatomic, strong) GADInterstitial *interstitial;
+
 @interface NowPlayingViewController ()<UIGestureRecognizerDelegate,GADBannerViewDelegate>
 {
     id timeObserver;
@@ -52,6 +52,7 @@ typedef enum {
     Boolean sliderProgressEditing;
     Boolean requesting;
 }
+@property(nonatomic, strong) GADInterstitial *interstitial;
 @property(nonatomic, assign) CGPoint startPoint;
 @property(nonatomic, strong) GADBannerView *bannerView;
 @end
@@ -60,7 +61,7 @@ typedef enum {
 @synthesize slider;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.interstitial = [self createAndLoadInterstitial];
+//    self.interstitial = [self createAndLoadInterstitial];
        // Do any additional setup after loading the view.
     //_lbTitleTrack.marqueeType = MLContinuous;
     //_lbTitleTrack.animationDelay = 2.0f;
