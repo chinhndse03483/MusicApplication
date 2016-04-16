@@ -47,6 +47,7 @@
 		A3030A341CBD84940031553C /* buildings.png in Resources */ = {isa = PBXBuildFile; fileRef = A3030A331CBD84940031553C /* buildings.png */; };
 		A32B2D2A1CC16EBB005581BA /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32B2D291CC16EBB005581BA /* MediaPlayer.framework */; };
 		A32B2D2C1CC16EC5005581BA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32B2D2B1CC16EC5005581BA /* AudioToolbox.framework */; };
+		A3518D991CC236470025ECA5 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3518D981CC236470025ECA5 /* GoogleMobileAds.framework */; };
 		A3A7CB1A1CC2047C00FD1FE2 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A7CB191CC2047C00FD1FE2 /* MoreViewController.m */; };
 		A3C30C901CB421730030D398 /* Suggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C30C8F1CB421730030D398 /* Suggestion.m */; };
 		A3C30CA81CB423A70030D398 /* SuggestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C30CA61CB423A70030D398 /* SuggestCell.m */; };
@@ -264,6 +265,7 @@
 		A3030A331CBD84940031553C /* buildings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buildings.png; sourceTree = "<group>"; };
 		A32B2D291CC16EBB005581BA /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		A32B2D2B1CC16EC5005581BA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A3518D981CC236470025ECA5 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		A3A7CB181CC2047C00FD1FE2 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		A3A7CB191CC2047C00FD1FE2 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		A3C30C8E1CB421730030D398 /* Suggestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Suggestion.h; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 			files = (
 				A32B2D2C1CC16EC5005581BA /* AudioToolbox.framework in Frameworks */,
 				A32B2D2A1CC16EBB005581BA /* MediaPlayer.framework in Frameworks */,
+				A3518D991CC236470025ECA5 /* GoogleMobileAds.framework in Frameworks */,
 				A3FC1E5A1CB99DD40055781C /* MagicalRecord.framework in Frameworks */,
 				B8ECC1611CC072B400636132 /* LNPopupController.framework in Frameworks */,
 				84BFAD3B1CB12EBD00E42876 /* MagicalRecord.framework in Frameworks */,
@@ -660,6 +663,7 @@
 		B863C25F1CA71CD300688CD2 = {
 			isa = PBXGroup;
 			children = (
+				A3518D981CC236470025ECA5 /* GoogleMobileAds.framework */,
 				A32B2D2B1CC16EC5005581BA /* AudioToolbox.framework */,
 				A32B2D291CC16EBB005581BA /* MediaPlayer.framework */,
 				B8602B841CA752ED00649C19 /* libxml2.2.tbd */,
@@ -1205,6 +1209,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = Hackathon_ios_gen2_Zing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1222,6 +1230,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = Hackathon_ios_gen2_Zing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

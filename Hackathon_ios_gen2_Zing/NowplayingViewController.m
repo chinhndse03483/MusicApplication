@@ -14,7 +14,7 @@
 #import "DBTrack.h"
 #import "ShowListViewController.h"
 #import "Libraries/LNPopupController/LNPopupController.h"
-
+@import GoogleMobileAds;
 
 #define kTracksKey              @"tracks"
 #define kStatusKey              @"status"
@@ -38,7 +38,7 @@ typedef enum {
     
 } PLAYER_STATE;
 
-@interface NowPlayingViewController ()<UIGestureRecognizerDelegate>
+@interface NowPlayingViewController ()<UIGestureRecognizerDelegate,GADBannerViewDelegate>
 {
     id timeObserver;
     CGFloat percentage;
@@ -48,7 +48,7 @@ typedef enum {
     Boolean requesting;
 }
 @property(nonatomic, assign) CGPoint startPoint;
-
+@property(nonatomic, strong) GADBannerView *bannerView;
 @end
 
 @implementation NowPlayingViewController
@@ -82,17 +82,13 @@ typedef enum {
                                                object:nil];
     //_btnRepeat.tintColor = kAppColor;
     // Do any additional setup after loading the view.
-    
+    self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    self.bannerView.delegate = self;
     [self playTrack:_playingTrack];
 }
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-}
-- (void) viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
+
+
+
 
 -(BOOL)prefersStatusBarHidden{
     return YES;
@@ -328,6 +324,7 @@ typedef enum {
 }
 - (void)play;
 {
+    
     _btnPlay.selected =FALSE;
     [self.player play];
 }

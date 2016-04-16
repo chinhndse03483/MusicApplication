@@ -8,11 +8,13 @@
 
 #import "ViewController.h"
 #import "YALSunnyRefreshControl.h"
+@import GoogleMobileAds;
 @interface SearchTypeViewController : UIViewController <UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     
 }
 @property (nonatomic,strong) YALSunnyRefreshControl *sunnyRefreshControl;
+@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property(nonatomic,strong) IBOutlet UITableView *tblSearch;
 @property (weak, nonatomic) IBOutlet UITableView *tblSuggest;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;

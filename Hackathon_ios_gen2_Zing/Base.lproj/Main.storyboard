@@ -523,6 +523,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6EZ-TK-tDk">
+                                <rect key="frame" x="0.0" y="57" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="sRC-SE-VAn" id="jHy-tl-452"/>
+                                    <outlet property="delegate" destination="sRC-SE-VAn" id="eP0-TE-nw7"/>
+                                </connections>
+                            </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="93k-HD-EAk">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -531,14 +539,13 @@
                                     <outlet property="delegate" destination="sRC-SE-VAn" id="wkQ-Pc-sR2"/>
                                 </connections>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6EZ-TK-tDk">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49h-YR-ZFv" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="sRC-SE-VAn" id="jHy-tl-452"/>
-                                    <outlet property="delegate" destination="sRC-SE-VAn" id="eP0-TE-nw7"/>
-                                </connections>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="9lo-lM-eHk"/>
+                                </constraints>
+                            </view>
                             <searchBar contentMode="redraw" placeholder="What song do you want to day?" translatesAutoresizingMaskIntoConstraints="NO" id="kzu-r8-UiR">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -546,29 +553,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="49h-YR-ZFv" firstAttribute="centerX" secondItem="jDK-8K-41E" secondAttribute="centerX" id="3SN-qA-93o"/>
                             <constraint firstAttribute="trailing" secondItem="kzu-r8-UiR" secondAttribute="trailing" id="GHR-T7-t3q"/>
-                            <constraint firstAttribute="bottom" secondItem="6EZ-TK-tDk" secondAttribute="bottom" id="HkO-4f-K7U"/>
+                            <constraint firstAttribute="trailing" secondItem="49h-YR-ZFv" secondAttribute="trailing" id="Gbr-eF-ws3"/>
                             <constraint firstItem="kzu-r8-UiR" firstAttribute="top" secondItem="8dO-JA-MpB" secondAttribute="bottom" id="JFV-pv-Ff8"/>
                             <constraint firstAttribute="trailing" secondItem="93k-HD-EAk" secondAttribute="trailing" id="JWN-S3-NeM"/>
-                            <constraint firstItem="6EZ-TK-tDk" firstAttribute="top" secondItem="kzu-r8-UiR" secondAttribute="bottom" id="Nii-Ri-XYB"/>
+                            <constraint firstItem="49h-YR-ZFv" firstAttribute="top" secondItem="kzu-r8-UiR" secondAttribute="bottom" id="Lun-sp-OcV"/>
                             <constraint firstItem="93k-HD-EAk" firstAttribute="top" secondItem="kzu-r8-UiR" secondAttribute="bottom" id="TdB-2q-cQQ"/>
                             <constraint firstItem="hVI-3i-L3b" firstAttribute="top" secondItem="93k-HD-EAk" secondAttribute="bottom" id="U9q-bl-1Eb"/>
                             <constraint firstAttribute="bottom" secondItem="93k-HD-EAk" secondAttribute="bottom" id="UBd-BZ-6I3"/>
-                            <constraint firstItem="6EZ-TK-tDk" firstAttribute="leading" secondItem="jDK-8K-41E" secondAttribute="leading" id="Uwy-IB-UWi"/>
-                            <constraint firstAttribute="trailing" secondItem="6EZ-TK-tDk" secondAttribute="trailing" id="a9H-CU-msf"/>
-                            <constraint firstItem="hVI-3i-L3b" firstAttribute="top" secondItem="6EZ-TK-tDk" secondAttribute="bottom" id="gJx-eW-dXL"/>
                             <constraint firstItem="93k-HD-EAk" firstAttribute="leading" secondItem="jDK-8K-41E" secondAttribute="leading" id="iGd-fs-SM7"/>
                             <constraint firstItem="kzu-r8-UiR" firstAttribute="leading" secondItem="jDK-8K-41E" secondAttribute="leading" id="rDV-Gj-y3v"/>
+                            <constraint firstItem="49h-YR-ZFv" firstAttribute="leading" secondItem="jDK-8K-41E" secondAttribute="leading" id="wqC-Vp-yLL"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="HkO-4f-K7U"/>
                                 <exclude reference="UBd-BZ-6I3"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="jKQ-MK-cWh"/>
                     <connections>
+                        <outlet property="bannerView" destination="49h-YR-ZFv" id="KC4-bl-hD0"/>
                         <outlet property="searchBar" destination="kzu-r8-UiR" id="MeA-FJ-hFa"/>
                         <outlet property="tblSearch" destination="93k-HD-EAk" id="xzz-O1-Bak"/>
                         <outlet property="tblSuggest" destination="6EZ-TK-tDk" id="PtX-Ma-ndJ"/>
@@ -817,9 +823,9 @@
                                 <exclude reference="oBh-r7-EVz"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="1SJ-au-Lu6"/>
                                 <exclude reference="6RQ-qN-uMB"/>
                                 <exclude reference="afJ-x2-Cse"/>
-                                <exclude reference="1SJ-au-Lu6"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -827,9 +833,9 @@
                                 <include reference="oBh-r7-EVz"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="1SJ-au-Lu6"/>
                                 <include reference="6RQ-qN-uMB"/>
                                 <include reference="afJ-x2-Cse"/>
-                                <include reference="1SJ-au-Lu6"/>
                             </mask>
                         </variation>
                     </view>
@@ -861,6 +867,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXF-AR-Rsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2610" y="-147"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="JYL-hv-KSe">
+            <objects>
+                <viewController id="dWl-b2-n6C" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dDG-UI-Hym"/>
+                        <viewControllerLayoutGuide type="bottom" id="tPS-0m-T4A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n7J-ql-EoU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cWN-EC-lGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pwL-1a-VLB">
+            <objects>
+                <viewController id="9M0-Zv-2zP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tha-sP-MoK"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Fl-6I-JkR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h2S-x8-F0g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GX-Pv-bvP" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Dn5-HV-gKY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6GX-Pv-bvP" firstAttribute="leading" secondItem="h2S-x8-F0g" secondAttribute="leading" id="5Me-op-6aJ"/>
+                            <constraint firstItem="6GX-Pv-bvP" firstAttribute="top" secondItem="Tha-sP-MoK" secondAttribute="bottom" id="Ao9-kV-E8l"/>
+                            <constraint firstAttribute="trailing" secondItem="6GX-Pv-bvP" secondAttribute="trailing" id="NXb-l5-cLH"/>
+                            <constraint firstItem="6GX-Pv-bvP" firstAttribute="centerX" secondItem="h2S-x8-F0g" secondAttribute="centerX" id="ePM-SG-yqa"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tM0-i9-NGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="325" y="317"/>
         </scene>
     </scenes>
     <resources>
