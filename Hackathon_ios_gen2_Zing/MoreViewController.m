@@ -53,9 +53,6 @@
         default:
             break;
     }
-    [cell.textLabel setFont:[UIFont systemFontOfSize:20]];
-    if (indexPath.row < 5)
-    cell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, cell.bounds.size.width + 10 );
     return cell;
 }
 
