@@ -51,7 +51,7 @@
 - (void)displayBtnNewPlaylist;
 {
     self.accessoryType = UITableViewCellAccessoryNone;
-    UIImage *image = [[UIImage imageNamed:@"add_folder"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *image =[UIImage imageNamed:@"add_folder"];
     _imgTrack.image = image;
     _lblTrackNumber.text = @"";
     [_lblTitle setFont:[UIFont systemFontOfSize:20]];
