@@ -38,7 +38,7 @@
     
     _fetchedResultsController = [DBTrack MR_fetchAllSortedBy:@"listID"
                                                    ascending:NO
-                                               withPredicate:[NSPredicate predicateWithFormat:@"listID != %@",[NSNumber numberWithInt:1]]
+                                               withPredicate:[NSPredicate predicateWithFormat:@"listID != %@",[NSNumber numberWithInt:0]]
                                                      groupBy:nil
                                                     delegate:self];
     [self reloadAllPlaylistsWillReloadTableView:YES];
@@ -81,7 +81,7 @@
 
 - (void)reloadAllPlaylistsWillReloadTableView:(BOOL)willReloadTable;
 {
-    _playlists = [[NSMutableArray alloc]initWithArray:[DBListTrack MR_findAllSortedBy:@"listID" ascending:NO withPredicate:[NSPredicate predicateWithFormat:@"listID != %@",[NSNumber numberWithInt:1]]]];
+    _playlists = [[NSMutableArray alloc]initWithArray:[DBListTrack MR_findAllSortedBy:@"listID" ascending:NO withPredicate:[NSPredicate predicateWithFormat:@"listID != %@",[NSNumber numberWithInt:0]]]];
     if (willReloadTable) {
         [_tblPlaylists reloadData];
     }
