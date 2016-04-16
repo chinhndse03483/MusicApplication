@@ -93,6 +93,13 @@
     
 }
 
+-(void) downNowPlaying;
+{
+    [self.window.rootViewController closePopupAnimated:TRUE completion:^{
+        
+    }];
+}
+
 -(void)btnPlayPausePopupDidTap{
     
     UIBarButtonItem *leftButtonPopup;

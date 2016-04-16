@@ -20,6 +20,8 @@
 
 -(void) playMusic:(Track *)selectedSong andIndexPathDidselected:(NSInteger)indexPathDidselected andArrSong:(NSMutableArray *)songs;
 
+-(void) downNowPlaying;
+
 
 
 @end
