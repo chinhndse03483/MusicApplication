@@ -47,6 +47,7 @@
 		A3030A341CBD84940031553C /* buildings.png in Resources */ = {isa = PBXBuildFile; fileRef = A3030A331CBD84940031553C /* buildings.png */; };
 		A32B2D2A1CC16EBB005581BA /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32B2D291CC16EBB005581BA /* MediaPlayer.framework */; };
 		A32B2D2C1CC16EC5005581BA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32B2D2B1CC16EC5005581BA /* AudioToolbox.framework */; };
+		A3A7CB1A1CC2047C00FD1FE2 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A7CB191CC2047C00FD1FE2 /* MoreViewController.m */; };
 		A3C30C901CB421730030D398 /* Suggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C30C8F1CB421730030D398 /* Suggestion.m */; };
 		A3C30CA81CB423A70030D398 /* SuggestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C30CA61CB423A70030D398 /* SuggestCell.m */; };
 		A3C30CA91CB423A70030D398 /* SuggestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C30CA71CB423A70030D398 /* SuggestCell.xib */; };
@@ -263,6 +264,8 @@
 		A3030A331CBD84940031553C /* buildings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buildings.png; sourceTree = "<group>"; };
 		A32B2D291CC16EBB005581BA /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		A32B2D2B1CC16EC5005581BA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A3A7CB181CC2047C00FD1FE2 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		A3A7CB191CC2047C00FD1FE2 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		A3C30C8E1CB421730030D398 /* Suggestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Suggestion.h; sourceTree = "<group>"; };
 		A3C30C8F1CB421730030D398 /* Suggestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Suggestion.m; sourceTree = "<group>"; };
 		A3C30CA51CB423A70030D398 /* SuggestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestCell.h; sourceTree = "<group>"; };
@@ -566,6 +569,15 @@
 			path = YALSunnyRefreshControll;
 			sourceTree = "<group>";
 		};
+		A3A7CB101CC2043B00FD1FE2 /* TabMore */ = {
+			isa = PBXGroup;
+			children = (
+				A3A7CB181CC2047C00FD1FE2 /* MoreViewController.h */,
+				A3A7CB191CC2047C00FD1FE2 /* MoreViewController.m */,
+			);
+			name = TabMore;
+			sourceTree = "<group>";
+		};
 		A3C30CA41CB423860030D398 /* TabSuggest */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,6 +680,7 @@
 		B863C26A1CA71CD300688CD2 /* Hackathon_ios_gen2_Zing */ = {
 			isa = PBXGroup;
 			children = (
+				A3A7CB101CC2043B00FD1FE2 /* TabMore */,
 				61EF56E71CBC90ED004F4535 /* tabHistory */,
 				B87BFA1E1CB45E61000AAAC3 /* ParseAlbum */,
 				84E28F891CB3EEC700E6D9F8 /* Constant */,
@@ -858,7 +871,7 @@
 				TargetAttributes = {
 					B863C2671CA71CD300688CD2 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 77G8PUN44T;
+						DevelopmentTeam = 8DJSS447Y7;
 					};
 				};
 			};
@@ -1060,6 +1073,7 @@
 				B8602B761CA752BB00649C19 /* AFHTTPRequestOperation.m in Sources */,
 				B8602B781CA752BB00649C19 /* AFHTTPSessionManager.m in Sources */,
 				84BFAC341CB1275A00E42876 /* Constant.m in Sources */,
+				A3A7CB1A1CC2047C00FD1FE2 /* MoreViewController.m in Sources */,
 				61CACAE81CC0EA6F00EF7EA7 /* MGSwipeTableCell.m in Sources */,
 				A3D65F601CC14ECA003FC1CA /* UIScrollView+SVPullToRefresh.m in Sources */,
 				B85252AD1CABE6D300A62D40 /* ListSongViewController.m in Sources */,
@@ -1196,7 +1210,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = "Hackatho-ios-gen2-Zing";
+				PRODUCT_BUNDLE_IDENTIFIER = "Hackat-ios-gen2-Zing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1213,7 +1227,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = "Hackatho-ios-gen2-Zing";
+				PRODUCT_BUNDLE_IDENTIFIER = "Hackat-ios-gen2-Zing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
