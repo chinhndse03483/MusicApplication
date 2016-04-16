@@ -130,9 +130,10 @@ typedef NS_ENUM(NSInteger, buttonType) {
     
     
         if (![nowPlayingViewController.playingTrack.linkStreaming isEqual: selectedTrack.linkStreaming]) {
+            [self reloadAllTracksWillReloadTableView:YES];
             [APPDELEGATE playMusic:selectedTrack andIndexPathDidselected:indexPath.row andArrSong:[tmpArray copy]];
         }
- 
+    
 }
 #pragma mark - DZNEmplyData
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView

@@ -56,7 +56,6 @@
 - (void)btnDoneAllDidTouch;
 {
     NSLog(@"test track: %@",_track.linkStreaming);
-    
     DBTrack *dbTrack = [DBTrack createDBTrackFromTrack:_track];
     [DBListTrack addTrackToPlaylist:_selectedPlaylist andDBTrack:dbTrack];
     
@@ -184,7 +183,8 @@
         UIAlertAction *save = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
             [DBListTrack createFavoriteWithTitle:alert.textFields[0].text];
-            [self.navigationController popViewControllerAnimated:NO];
+            [self reloadAllPlaylistsWillReloadTableView:YES];
+            
         }];
         
         [alert addAction:cancel];
@@ -193,6 +193,7 @@
         [self presentViewController:alert animated:YES completion:nil];
     } else {
         _selectedPlaylist = _playlists[indexPath.row];
+        [self reloadAllPlaylistsWillReloadTableView:YES];
     }
 }
 

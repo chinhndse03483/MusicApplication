@@ -104,31 +104,31 @@
         NSString *author = [element2 content];
         Track *track = [[Track alloc]initWithTitle:name andAuthor:author andLink:href andLinkImage:nil andType:0];
     
-            
-            [[CommonFunction sharedManager] getDurationWithURL:track.linkStreaming withCompletionBlock:^(NSDictionary *result) {
-                
-                if (result) {
-                    
-                    track.timeDuration = [[CommonFunction sharedManager] formatStringWithDuration:result[@"__text"]];
-                    NSLog(@"fuckk %@",track.timeDuration);
-                    
-                    //download artwork
-                    [self.tblSearch reloadRowsAtIndexPaths:self.tblSearch.indexPathsForVisibleRows withRowAnimation:UITableViewRowAnimationNone];
-                    for (SearchSongCellTableViewCell *cell in self.tblSearch.visibleCells) {
-                        [_tblSearch reloadData];
-                        
-                    }
-                    
-                }else{
-                    track.timeDuration = @"";
-                    
-                    
-                }
-                
-                
-                
-            }];
-            
+//            
+//            [[CommonFunction sharedManager] getDurationWithURL:track.linkStreaming withCompletionBlock:^(NSDictionary *result) {
+//                
+//                if (result) {
+//                    
+//                    track.timeDuration = [[CommonFunction sharedManager] formatStringWithDuration:result[@"__text"]];
+//                    NSLog(@"fuckk %@",track.timeDuration);
+//                    
+//                    //download artwork
+//                    [self.tblSearch reloadRowsAtIndexPaths:self.tblSearch.indexPathsForVisibleRows withRowAnimation:UITableViewRowAnimationNone];
+//                    for (SearchSongCellTableViewCell *cell in self.tblSearch.visibleCells) {
+//                        [_tblSearch reloadData];
+//                        
+//                    }
+//                    
+//                }else{
+//                    track.timeDuration = @"";
+//                    
+//                    
+//                }
+//                
+//                
+//                
+//            }];
+//            
       
 
         [thArray addObject:track];
@@ -296,13 +296,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (tableView == _tblSearch) {
-        static NSString *cellId = @"trackCell";
+        static NSString *cellId = @"SearchSongCellTableViewCell";
         SearchSongCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-        cell.delegate = self;
+        
         if (!cell) {
             NSArray *nib = [[NSBundle mainBundle]loadNibNamed:@"SearchSongCellTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
+        cell.delegate = self;
         
         Track *track = _track[indexPath.row];
         [cell displayTrack:track];
@@ -516,6 +517,7 @@
     
 }
 
+
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
         Track *track = [_track objectAtIndex:currentPopup];
@@ -529,17 +531,19 @@
         [self.navigationController.view.layer addAnimation:transition
                                                     forKey:kCATransition];
         [addToFavoriteViewController setHidesBottomBarWhenPushed:YES];
-        //[self presentViewController:addToFavoriteViewController animated:YES completion:nil];
-        [self.navigationController pushViewController:addToFavoriteViewController animated:NO];
+        [self presentViewController:addToFavoriteViewController animated:YES completion:nil];
+//        [self.navigationController pushViewController:addToFavoriteViewController animated:NO];
     }
     
 }
 
+
 - (void)searchSongCellDidTouchOnActionButton : (SearchSongCellTableViewCell*) sender;
 {
     NSIndexPath *indexPath = [self.tblSearch indexPathForCell:sender];
+    currentPopup = indexPath.row;
     //NSLog(@"index Path %d", indexPath.row);
-    UIActionSheet *popup = [[UIActionSheet alloc]                  initWithTitle:@""
+    UIActionSheet *popup = [[UIActionSheet alloc]                  initWithTitle:nil
                                                                         delegate:self
                                                                cancelButtonTitle:@"Huỷ bỏ"
                                                           destructiveButtonTitle:nil
@@ -559,7 +563,6 @@
     }
     
 }
-
 
 /*
  #pragma mark - Navigation

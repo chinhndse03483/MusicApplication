@@ -169,7 +169,7 @@ typedef NS_ENUM(NSInteger, buttonType) {
     
     
     if (![nowPlayingViewController.playingTrack.linkStreaming isEqual: selectedTrack.linkStreaming]) {
-        [APPDELEGATE playMusic:selectedTrack andIndexPathDidselected:indexPath.row andArrSong:_tracks];
+        [APPDELEGATE playMusic:selectedTrack andIndexPathDidselected:indexPath.row andArrSong:tmpArray];
     }
 
 }
