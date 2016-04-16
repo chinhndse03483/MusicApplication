@@ -34,9 +34,9 @@
 @property(assign,nonatomic) NSInteger sizOfNavigationBar;
 @property(assign,nonatomic) NSInteger status;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
+@property(assign,nonatomic) NSIndexPath *indexTrack;
 
 - (IBAction)sliderAction:(id)sender;
-
 - (IBAction)btnCancelDidTouch:(id)sender;
 - (IBAction)btnPlayDidTouch:(id)sender;
 - (IBAction)btnNextDidTouch:(id)sender;

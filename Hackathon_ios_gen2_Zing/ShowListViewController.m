@@ -18,6 +18,7 @@
 {
     NowPlayingViewController *nowPlayingViewController;
     
+    
 }
 
 @end
@@ -30,6 +31,8 @@
     _tbvShowList.tableFooterView = [[UIView alloc]init];
     _barItem = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(btnDoneAllDidTouch)];
     self.navigationItem.rightBarButtonItem = _barItem;
+    static NSString *cellId = @"SearchSongCellTableViewCell";
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,10 +59,12 @@
         NSArray *nib = [[NSBundle mainBundle]loadNibNamed:@"SearchSongCellTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    
+   
+
     cell.accessoryType = UITableViewCellAccessoryNone;
     
     Track *track = _trackList[indexPath.row];
+    
     cell.lblName.text = track.title;
     
     cell.lblAuthor.text = track.author;
@@ -74,19 +79,38 @@
         cell.imgSong.image = placeholerImage;
     }
     [cell.btnAction setHidden:TRUE];
-    // cell.trackCellDelegate = self;
     
+    //if (_trackList[indexPath.row])
+    Track *tmp = _trackList[indexPath.row];
+    //if (indexPath.row == _indexTrack)
+    if ([tmp.linkStreaming isEqualToString:_playingTrack.linkStreaming])
+    {
+        [self setCellColor:[UIColor redColor] ForCell:cell];
+    }
+    cell.lblDuration.text = [_trackList[indexPath.row] timeDuration];
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:indexPath{
+    // Add your Colour.
+    SearchSongCellTableViewCell *cell = (SearchSongCellTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [self setCellColor:[UIColor redColor] ForCell:cell];
+}
+- (void)setCellColor:(UIColor *)color ForCell:(UITableViewCell *)cell {
+    cell.contentView.backgroundColor = color;
+    cell.backgroundColor = color;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    nowPlayingViewController = [NowPlayingViewController sharedManager];
+        nowPlayingViewController = [NowPlayingViewController sharedManager];
    // nowPlayingViewController.trackList = _trackList;
     Track *selectedTrack = _trackList[indexPath.row];
     nowPlayingViewController.playingTrack = selectedTrack;
     [APPDELEGATE playMusic:selectedTrack andIndexPathDidselected:indexPath.row andArrSong:_trackList];
+    _indexTrack = indexPath.row;
+    [self btnCloseTouchUp:nil];
 }
 - (void)searchSongCellDidTouchOnActionButton : (SearchSongCellTableViewCell*) sender;
 {
@@ -114,4 +138,15 @@
 }
 */
 
+- (IBAction)btnTouchUp:(id)sender {
+}
+
+- (IBAction)btnCloseTouchUp:(id)sender {
+    //[self ]
+    [self dismissViewControllerAnimated:TRUE completion:^{
+        
+    }];
+    
+ 
+}
 @end

@@ -15,6 +15,11 @@
 #import "ShowListViewController.h"
 #import "Libraries/LNPopupController/LNPopupController.h"
 
+#import "AppDelegate.h"
+
+
+@import GoogleMobileAds;
+
 
 #define kTracksKey              @"tracks"
 #define kStatusKey              @"status"
@@ -37,8 +42,8 @@ typedef enum {
     
     
 } PLAYER_STATE;
-
-@interface NowPlayingViewController ()<UIGestureRecognizerDelegate>
+@property(nonatomic, strong) GADInterstitial *interstitial;
+@interface NowPlayingViewController ()<UIGestureRecognizerDelegate,GADBannerViewDelegate>
 {
     id timeObserver;
     CGFloat percentage;
@@ -48,13 +53,14 @@ typedef enum {
     Boolean requesting;
 }
 @property(nonatomic, assign) CGPoint startPoint;
-
+@property(nonatomic, strong) GADBannerView *bannerView;
 @end
 
 @implementation NowPlayingViewController
 @synthesize slider;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.interstitial = [self createAndLoadInterstitial];
        // Do any additional setup after loading the view.
     //_lbTitleTrack.marqueeType = MLContinuous;
     //_lbTitleTrack.animationDelay = 2.0f;
@@ -82,17 +88,13 @@ typedef enum {
                                                object:nil];
     //_btnRepeat.tintColor = kAppColor;
     // Do any additional setup after loading the view.
-    
+    self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    self.bannerView.delegate = self;
     [self playTrack:_playingTrack];
 }
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-}
-- (void) viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
+
+
+
 
 -(BOOL)prefersStatusBarHidden{
     return YES;
@@ -328,6 +330,7 @@ typedef enum {
 }
 - (void)play;
 {
+    
     _btnPlay.selected =FALSE;
     [self.player play];
 }
@@ -655,16 +658,21 @@ typedef enum {
  
     ShowListViewController *showListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ShowListViewController"];
     showListViewController.trackList = _trackList;
+    showListViewController.indexURl = _playingTrack.linkStreaming;
     CATransition* transition = [CATransition animation];
     transition.duration = 0.3f;
     transition.type = kCATransitionMoveIn;
     transition.subtype = kCATransitionFromTop;
+    showListViewController.indexTrack = _indexTrack;
     [self.navigationController.view.layer addAnimation:transition
                                                 forKey:kCATransition];
-    [showListViewController setHidesBottomBarWhenPushed:YES];
+   // [showListViewController setHidesBottomBarWhenPushed:YES];
     [showListViewController setTitle:@"fuck"];
+    [showListViewController.navigationController setNavigationBarHidden:FALSE];
     
+    //[self present]
     [self presentViewController:showListViewController animated:YES completion:nil];
+    
     //[self.navigationController pushViewController:showListViewController animated:NO];
     
 }
