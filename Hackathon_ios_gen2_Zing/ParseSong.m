@@ -133,30 +133,30 @@ NowPlayingViewController *nowPlayingViewController;
             if (_type == 0)
             {
                 
-                [[CommonFunction sharedManager] getDurationWithURL:track.linkStreaming withCompletionBlock:^(NSDictionary *result) {
-                    
-                    if (result) {
-                        
-                        track.timeDuration = [[CommonFunction sharedManager] formatStringWithDuration:result[@"__text"]];
-                        NSLog(@"fuckk %@",track.timeDuration);
-                        
-                        //download artwork
-                        [self.tblSong reloadRowsAtIndexPaths:self.tblSong.indexPathsForVisibleRows withRowAnimation:UITableViewRowAnimationNone];
-                        for (SearchSongCellTableViewCell *cell in self.tblSong.visibleCells) {
-                            [_tblSong reloadData];
-                            
-                            
-                        }
-                        
-                    }else{
-                        track.timeDuration = @"";
-                        
-                        
-                    }
-                    
-                    
-                    
-                }];
+//                [[CommonFunction sharedManager] getDurationWithURL:track.linkStreaming withCompletionBlock:^(NSDictionary *result) {
+//                    
+//                    if (result) {
+//                        
+//                        track.timeDuration = [[CommonFunction sharedManager] formatStringWithDuration:result[@"__text"]];
+//                        NSLog(@"fuckk %@",track.timeDuration);
+//                        
+//                        //download artwork
+//                        [self.tblSong reloadRowsAtIndexPaths:self.tblSong.indexPathsForVisibleRows withRowAnimation:UITableViewRowAnimationNone];
+//                        for (SearchSongCellTableViewCell *cell in self.tblSong.visibleCells) {
+//                            [_tblSong reloadData];
+//                            
+//                            
+//                        }
+//                        
+//                    }else{
+//                        track.timeDuration = @"";
+//                        
+//                        
+//                    }
+//                    
+//                    
+//                    
+//                }];
 
             }
              
