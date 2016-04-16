@@ -8,7 +8,7 @@
 
 #define MP3BtnMoreImageName                           @"ButtonMore"
 #import "SearchSongCellTableViewCell.h"
-#define MP3DefaultTrackImageName                      @"Track1"
+#define MP3DefaultTrackImageName                      @"TrackDefault.jpg"
 #define URLIMAGE                                      @"http://image.mp3.zdn.vn/"
 #import "Track.h"
 #import "UIImageView+WebCache.h"
