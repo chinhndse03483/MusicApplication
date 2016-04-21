@@ -331,12 +331,12 @@ typedef enum {
 }
 - (void)play;
 {
-    int i = arc4random()%3;
-    NSLog(@"-----%d",i);
-    if(APPDELEGATE.interstitial.isReady && i == 0){
-    
-        [APPDELEGATE.interstitial presentFromRootViewController:self];
-    }
+//    int i = arc4random()%3;
+//    NSLog(@"-----%d",i);
+//    if(APPDELEGATE.interstitial.isReady && i == 0){
+//    
+//        [APPDELEGATE.interstitial presentFromRootViewController:self];
+//    }
     
     _btnPlay.selected =FALSE;
     [self.player play];

@@ -66,6 +66,7 @@
     
     __weak SearchTypeViewController *weakSelf = self;
     
+    //setup refesh data ưhen drag up
     [self.tblSearch addInfiniteScrollingWithActionHandler:^{
         [weakSelf loadMore];
         
@@ -265,17 +266,16 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
-    int i = arc4random()%3;
-    NSLog(@"-----%d",i);
-    if(APPDELEGATE.interstitial.isReady && i == 0){
-        
-        [APPDELEGATE.interstitial presentFromRootViewController:self];
-    }
+    //[_tblSearch addSubview:_refreshControl];
+//    int i = arc4random()%3;
+//    if(APPDELEGATE.interstitial.isReady && i == 0){
+//        
+//        [APPDELEGATE.interstitial presentFromRootViewController:self];
+//    }
+    [_track removeAllObjects];
     _tblSuggest.hidden = YES;
     _tblSearch.hidden = NO;
     [_searchBar endEditing:YES];
-    
-    //[_tblSearch triggerInfiniteScrolling];
     
     [self searchTracksWithKeyword:_searchBar.text];
 }
@@ -360,11 +360,11 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (tableView == _tblSearch) {
-        int i = arc4random()%3;
-        if(APPDELEGATE.interstitial.isReady && i == 0){
-            
-            [APPDELEGATE.interstitial presentFromRootViewController:self];
-        }
+//        int i = arc4random()%3;
+//        if(APPDELEGATE.interstitial.isReady && i == 0){
+//            
+//            [APPDELEGATE.interstitial presentFromRootViewController:self];
+//        }
         Track *track = _track[indexPath.row];
         NSString *TrackId = track.trackId;
         
@@ -384,55 +384,76 @@
         
     }else{
         [_searchBar resignFirstResponder];
-        int i = arc4random()%3;
-        if(APPDELEGATE.interstitial.isReady && i == 0){
-            
-            [APPDELEGATE.interstitial presentFromRootViewController:self];
-        }
         Suggestion *suggest = _suggestions[indexPath.row];
-        //NSLog(@"%@",selectedTrack.linkStreaming);
-        NSString *TrackId = suggest.trackId;
-        //NSLog(@"Track ID: %@",suggest);
-        NSString *URL = [NSString stringWithFormat:@"%@%@%@", MP3URLStreaming, TrackId, MP3URLStreaming2];
+        _searchBar.text = suggest.query;
+        [_searchBar endEditing:YES];
+        _tblSuggest.hidden = YES;
+        _tblSearch.hidden = NO;
+        [self removeAllSearchData];
+        [_tblSearch triggerInfiniteScrolling];
         
-        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        AFHTTPSessionManager *httpSessionManager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:configuration];
-        httpSessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain",nil];
+//        int i = arc4random()%3;
+//        if(APPDELEGATE.interstitial.isReady && i == 0){
+//            
+//            [APPDELEGATE.interstitial presentFromRootViewController:self];
+//        }
         
-        NSString *encoded = [URL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [httpSessionManager GET:encoded parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            
-            NSString *url_Img_FULL = [NSString stringWithFormat:@"%@%@", URLIMAGE,responseObject[@"thumbnail"]];
-            Track *track = [[Track alloc] init];
-            track.title = responseObject[@"title"];
-            track.author = responseObject[@"artist"];
-            track.link = responseObject[@"source"][@"128"];
-            track.linkStreaming = responseObject[@"source"][@"128"];
-            track.linkImage = url_Img_FULL;
-            [_track addObject:track];
-            NowPlayingViewController *nowPlayingViewController = [NowPlayingViewController sharedManager];
-            nowPlayingViewController.trackList = _track[indexPath.row];
-            CATransition* transition = [CATransition animation];
-            transition.duration = 0.3f;
-            transition.type = kCATransitionMoveIn;
-            transition.subtype = kCATransitionFromTop;
-            [self.navigationController.view.layer addAnimation:transition
-                                                        forKey:kCATransition];
-            [APPDELEGATE playMusic:track andIndexPathDidselected:indexPath.row andArrSong:_track];
-//            [nowPlayingViewController setHidesBottomBarWhenPushed:YES];
-//            nowPlayingViewController.playingTrack = track;
-//            [nowPlayingViewController playTrack:nowPlayingViewController.playingTrack];
-//            [nowPlayingViewController animateGoingUp];
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            if (error) {
-                NSLog(@"%@",error);
-            }
-        }];
+//        Suggestion *suggest = _suggestions[indexPath.row];
+//        //NSLog(@"%@",selectedTrack.linkStreaming);
+//        NSString *TrackId = suggest.trackId;
+//        //NSLog(@"Track ID: %@",suggest);
+//        NSString *URL = [NSString stringWithFormat:@"%@%@%@", MP3URLStreaming, TrackId, MP3URLStreaming2];
+//        
+//        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+//        AFHTTPSessionManager *httpSessionManager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:configuration];
+//        httpSessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain",nil];
+//        
+//        NSString *encoded = [URL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//        [httpSessionManager GET:encoded parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//            
+//            NSString *url_Img_FULL = [NSString stringWithFormat:@"%@%@", URLIMAGE,responseObject[@"thumbnail"]];
+//            Track *track = [[Track alloc] init];
+//            track.title = responseObject[@"title"];
+//            track.author = responseObject[@"artist"];
+//            track.link = responseObject[@"source"][@"128"];
+//            track.linkStreaming = responseObject[@"source"][@"128"];
+//            track.linkImage = url_Img_FULL;
+//            [_track addObject:track];
+//            NowPlayingViewController *nowPlayingViewController = [NowPlayingViewController sharedManager];
+//            nowPlayingViewController.trackList = _track[indexPath.row];
+//            CATransition* transition = [CATransition animation];
+//            transition.duration = 0.3f;
+//            transition.type = kCATransitionMoveIn;
+//            transition.subtype = kCATransitionFromTop;
+//            [self.view.layer addAnimation:transition
+//                                                        forKey:kCATransition];
+//            [APPDELEGATE playMusic:track andIndexPathDidselected:indexPath.row andArrSong:_track];
+////            [nowPlayingViewController setHidesBottomBarWhenPushed:YES];
+////            nowPlayingViewController.playingTrack = track;
+////            [nowPlayingViewController playTrack:nowPlayingViewController.playingTrack];
+////            [nowPlayingViewController animateGoingUp];
+//            
+//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//            if (error) {
+//                NSLog(@"%@",error);
+//            }
+//        }];
     }
     
     
     
+}
+- (void)removeAllSearchData
+{
+    [_track removeAllObjects];
+    self.curentPage = 1;
+    [_tblSearch reloadData];
+}
+
+- (void)removeAllSuggestData
+{
+    [_suggestions removeAllObjects];
+    [_tblSuggest reloadData];
 }
 
 

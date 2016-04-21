@@ -48,6 +48,7 @@ NowPlayingViewController *nowPlayingViewController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _queueHTMLParse = [[NSOperationQueue alloc]init];
     _listSong = [[NSMutableArray alloc]init];
     [self setTitle:_navigationTitle];
@@ -202,11 +203,11 @@ NowPlayingViewController *nowPlayingViewController;
 //    Track *selectedTrack1 = _listSong[indexPath.row];
 
     if (_type == 0){
-        int i = arc4random()%3;
-        if(APPDELEGATE.interstitial.isReady && i == 0){
-            
-            [APPDELEGATE.interstitial presentFromRootViewController:self];
-        }
+//        int i = arc4random()%3;
+//        if(APPDELEGATE.interstitial.isReady && i == 0){
+//            
+//            [APPDELEGATE.interstitial presentFromRootViewController:self];
+//        }
         nowPlayingViewController = [NowPlayingViewController sharedManager];
         nowPlayingViewController.trackList = _listSong;
         Track *selectedTrack = _listSong[indexPath.row];

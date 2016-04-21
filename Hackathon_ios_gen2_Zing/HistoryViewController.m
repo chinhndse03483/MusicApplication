@@ -31,6 +31,7 @@ typedef NS_ENUM(NSInteger, buttonType) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     _tbvHistory.rowHeight = 60.0f;
     _tbvHistory.emptyDataSetDelegate = self;
     _tbvHistory.emptyDataSetSource = self;
@@ -113,10 +114,10 @@ typedef NS_ENUM(NSInteger, buttonType) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     int i = arc4random()%3;
     NSLog(@"-----%d",i);
-    if(APPDELEGATE.interstitial.isReady && i == 0){
-        
-        [APPDELEGATE.interstitial presentFromRootViewController:self];
-    }
+//    if(APPDELEGATE.interstitial.isReady && i == 0){
+//        
+//        [APPDELEGATE.interstitial presentFromRootViewController:self];
+//    }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     //if (_type == 0){
         NowPlayingViewController *nowPlayingViewController = [NowPlayingViewController sharedManager];

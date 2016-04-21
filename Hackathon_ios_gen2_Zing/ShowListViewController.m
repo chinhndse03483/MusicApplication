@@ -105,10 +105,10 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     int i = arc4random()%3;
-    if(APPDELEGATE.interstitial.isReady && i == 0){
-        
-        [APPDELEGATE.interstitial presentFromRootViewController:self];
-    }
+//    if(APPDELEGATE.interstitial.isReady && i == 0){
+//        
+//        [APPDELEGATE.interstitial presentFromRootViewController:self];
+//    }
         nowPlayingViewController = [NowPlayingViewController sharedManager];
    // nowPlayingViewController.trackList = _trackList;
     Track *selectedTrack = _trackList[indexPath.row];

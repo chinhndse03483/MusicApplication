@@ -52,4 +52,7 @@
 + (NowPlayingViewController *)sharedManager;
 -(void)playTrack:(Track *)playingTrack;
 - (void)playTrackHistory:(Track *)playingTrack;
+
+
+
 @end

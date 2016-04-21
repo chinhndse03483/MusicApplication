@@ -14,6 +14,7 @@
 #import "ListSongViewController.h"
 #import "CommonFunction.h"
 #import "UIImageView+WebCache.h"
+#import "SVPullToRefresh.h"
 #define kQueueNameHTMLParse @"kQueueNameHTMLParse"
 #define kSongVietNam @"http://mp3.zing.vn/bang-xep-hang/bai-hat-Viet-Nam/IWZ9Z08I.html"
 #define kAlbumVietNam @"http://mp3.zing.vn/bang-xep-hang/album-Viet-Nam/IWZ9Z08O.html"
@@ -221,6 +222,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [_tblGenre triggerInfiniteScrolling];
     ParseSong *parseSongViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListSongViewController"];
     //[_mutableDict objectForKey:<#(nonnull id)#>
     NSString *country = [[_mutableDict allKeys] objectAtIndex:indexPath.section];
@@ -235,6 +237,7 @@
     else{
         NSLog(@"Null");
     }
+    
 }
 
 
