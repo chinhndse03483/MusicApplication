@@ -87,7 +87,7 @@
     {
         [self setCellColor:[UIColor redColor] ForCell:cell];
     }
-    cell.lblDuration.text = [_trackList[indexPath.row] timeDuration];
+    //cell.lblDuration.text = [_trackList[indexPath.row] timeDuration];
     return cell;
 }
 

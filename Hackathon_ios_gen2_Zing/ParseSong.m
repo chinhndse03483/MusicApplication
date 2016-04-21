@@ -280,7 +280,7 @@ NowPlayingViewController *nowPlayingViewController;
     } else {
         cell.imgSong = placeholerImage;
     }
-    cell.lblDuration.text = track.timeDuration;
+    //cell.lblDuration.text = track.timeDuration;
     //[cell.lblDuration setHidden:TRUE];
     if (_type == 1)
     {

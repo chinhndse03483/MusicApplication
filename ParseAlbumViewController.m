@@ -109,32 +109,32 @@
              NSString *author = [href1 content];
              Track *track = [[Track alloc]initWithTitle:title andAuthor:author andLink:link andLinkImage:_imageAlbum
                              andType:0];
-             [[CommonFunction sharedManager] getDurationWithURL:track.linkStreaming withCompletionBlock:^(NSDictionary *result) {
-                 
-                 
-                 
-                 
-                 
-                 if (result) {
-                     
-                     track.timeDuration = [[CommonFunction sharedManager] formatStringWithDuration:result[@"__text"]];
-                     NSLog(@"fuckk %@",track.timeDuration);
-                     
-                     //download artwork
-                     [self.tblSong reloadRowsAtIndexPaths:self.tblSong.indexPathsForVisibleRows withRowAnimation:UITableViewRowAnimationNone];
-                     for (SearchSongCellTableViewCell *cell in self.tblSong.visibleCells) {
-                         [_tblSong reloadData];
-                         
-                         
-                     }
-                     
-                 }else{
-                     track.timeDuration = @"";
-                     
-                     
-                 }
-                 
-             }];
+//             [[CommonFunction sharedManager] getDurationWithURL:track.linkStreaming withCompletionBlock:^(NSDictionary *result) {
+//                 
+//                 
+//                 
+//                 
+//                 
+//                 if (result) {
+//                     
+//                     //track.timeDuration = [[CommonFunction sharedManager] formatStringWithDuration:result[@"__text"]];
+//                     
+//                     
+//                     //download artwork
+//                     [self.tblSong reloadRowsAtIndexPaths:self.tblSong.indexPathsForVisibleRows withRowAnimation:UITableViewRowAnimationNone];
+//                     for (SearchSongCellTableViewCell *cell in self.tblSong.visibleCells) {
+//                         [_tblSong reloadData];
+//                         
+//                         
+//                     }
+//                     
+//                 }else{
+//                     //track.timeDuration = @"";
+//                     
+//                     
+//                 }
+//                 
+//             }];
              
 
              [_listSong addObject:track];
@@ -172,7 +172,7 @@
         cell.imgSong = placeholerImage;
     
     }
-    cell.lblDuration.text = [[_listSong objectAtIndex:indexPath.row] timeDuration];
+    //cell.lblDuration.text = [[_listSong objectAtIndex:indexPath.row] timeDuration];
     return cell;
 
 }

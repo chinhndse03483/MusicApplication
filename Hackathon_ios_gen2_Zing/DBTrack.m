@@ -26,7 +26,7 @@
         newDBTrack.author = track.author;
         newDBTrack.linkImage = track.linkImage;
         newDBTrack.title = track.title;
-        newDBTrack.duration = track.timeDuration;
+        //newDBTrack.duration = track.timeDuration;
         newDBTrack.createdAt = [NSDate new];
     }
     

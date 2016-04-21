@@ -46,9 +46,9 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
+//    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+//    self.bannerView.rootViewController = self;
+//    [self.bannerView loadRequest:[GADRequest request]];
     
     
     // Do any additional setup after loading the view.

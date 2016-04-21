@@ -53,7 +53,7 @@
     }
     _lblName.text = name;
     _lblAuthor.text = author;
-    _lblDuration.text = track.timeDuration;
+    //_lblDuration.text = track.timeDuration;
 }
 
 
